@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy-950: #060d1f;
+  --color-navy-900: #0a1730;
+  --color-navy-800: #0f2247;
+  --color-navy-700: #163061;
+  --color-navy-600: #1e3f80;
+  --color-navy-500: #2c539e;
+  --color-navy-100: #e7ecf6;
+  --color-navy-50: #f4f6fb;
+
+  --color-gold-600: #a97c1f;
+  --color-gold-500: #c79a3d;
+  --color-gold-400: #d9b568;
+  --color-gold-300: #e7cd93;
+  --color-gold-200: #f0deb4;
+  --color-gold-100: #f7ecd3;
+
+  --color-ivory: #fbf9f4;
+
+  --font-serif: var(--font-playfair), var(--font-noto-serif-bn), "Noto Serif Bengali", serif;
+  --font-sans: var(--font-inter), var(--font-noto-sans-bn), "Noto Sans Bengali", sans-serif;
+
+  --animate-fade-up: fade-up 0.7s ease forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-navy-950);
+  font-family: var(--font-sans);
+}
+
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+.reveal {
+  opacity: 0;
+  animation: var(--animate-fade-up);
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Bangla script doesn't suit Latin-style wide letter-spacing — it breaks conjunct
+   glyph clusters. Neutralise any tracking utility once the page is in Bangla. */
+html[lang="bn"] [class*="tracking-"] {
+  letter-spacing: normal;
+}
+
+::selection {
+  background: var(--color-gold-300);
+  color: var(--color-navy-950);
+}
