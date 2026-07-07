@@ -55,7 +55,7 @@ export default function Hero() {
         <div className="order-1 md:order-2">
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
             <Image
-              src="/images/yeara-tisha-eti.jpg"
+              src="/images/yeara-tisha-eti-court.jpg"
               alt={lang === "en" ? "Advocate Yeara Tisha Eti" : "এডভোকেট ইয়েরা তিশা ইতি"}
               fill
               priority
