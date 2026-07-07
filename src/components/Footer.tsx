@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE } from "@/lib/site";
@@ -24,8 +25,14 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-4 md:px-8">
         <div className="md:col-span-2">
           <Link href="#top" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold-500 font-serif-display text-sm font-semibold text-gold-300">
-              YTE
+            <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold-500 bg-white">
+              <Image
+                src="/images/gazipur-bar-emblem.png"
+                alt={lang === "en" ? "Gazipur District Bar Association" : "গাজীপুর জেলা আইনজীবী সমিতি"}
+                fill
+                sizes="44px"
+                className="rounded-full object-contain p-1"
+              />
             </span>
             <span className="font-serif-display text-lg font-semibold text-white">
               {lang === "en" ? "Yeara Tisha Eti" : SITE.nameBn}

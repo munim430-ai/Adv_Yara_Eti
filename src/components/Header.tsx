@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { DEFAULT_WHATSAPP_MESSAGE_BN, DEFAULT_WHATSAPP_MESSAGE_EN, SITE, whatsappLink } from "@/lib/site";
@@ -55,8 +56,14 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
         <Link href="#top" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-gold-500 bg-navy-950 font-serif-display text-sm font-semibold tracking-wide text-gold-300">
-            YTE
+          <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold-500 bg-white">
+            <Image
+              src="/images/gazipur-bar-emblem.png"
+              alt={lang === "en" ? "Gazipur District Bar Association" : "গাজীপুর জেলা আইনজীবী সমিতি"}
+              fill
+              sizes="44px"
+              className="rounded-full object-contain p-1"
+            />
           </span>
           <span className="flex flex-col leading-tight">
             <span className="font-serif-display text-base font-semibold text-navy-950 md:text-lg">
